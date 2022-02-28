@@ -30,8 +30,9 @@ export default function ModelSelector({
   defaultModelInfo,
   onSelectModelInfo,
 }: Props) {
-  const [selectedModelInfo, setSelectedModelInfo] =
-    React.useState<ModelInfo>(defaultModelInfo);
+  const [selectedModelInfo, setSelectedModelInfo] = React.useState<ModelInfo>(
+    defaultModelInfo,
+  );
   function handleSelectModel(model: ModelInfo) {
     setSelectedModelInfo(model);
     onSelectModelInfo(model);

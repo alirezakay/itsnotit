@@ -18,7 +18,10 @@ type ImageClassificationResult = {
   confidence: number;
 };
 
-export default function useImageModelInference(modelInfo: ModelInfo) {
+export default function useImageModelInference(
+  modelInfo: ModelInfo,
+  short: Boolean = true,
+) {
   const [metrics, setMetrics] = useState<ModelResultMetrics>();
   const [imageClass, setImageClass] = useState<string>();
 
@@ -33,11 +36,14 @@ export default function useImageModelInference(modelInfo: ModelInfo) {
           image,
         },
       );
-      const className = MobileNetV3Classes[maxIdx];
-      setImageClass(`${className} (confidence ${confidence.toFixed(2)})`);
+      let className = String(MobileNetV3Classes[maxIdx]);
+      if (short) {
+        className = className.replace(/(\w+),?.*/g, '$1');
+      }
+      setImageClass(`${className} (${Math.round(confidence * 1000) / 10}%)`);
       setMetrics(m);
     },
-    [modelInfo.model, setImageClass, setMetrics],
+    [modelInfo.model, setImageClass, setMetrics, short],
   );
 
   return {

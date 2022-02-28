@@ -25,24 +25,3 @@ export const ImageClassificationModels: ModelInfo[] = [
     model: require('../models/mobilenet_v3_large.ptl'),
   },
 ];
-
-export const MultiClassClassificationModels: ModelInfo[] = [
-  {
-    name: 'MNIST',
-    model: require('../models/mnist.ptl'),
-  },
-];
-
-export const ObjectDetectionModels: ModelInfo[] = [
-  {
-    name: 'DETR',
-    model: require('../models/detr_resnet50.ptl'),
-  },
-];
-
-export const NLPModels: ModelInfo[] = [
-  {
-    name: 'DistilBertQA',
-    model: require('../models/bert_qa.ptl'),
-  },
-];

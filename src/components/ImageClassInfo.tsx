@@ -60,14 +60,14 @@ export default function ImageClassInfo({
 
 const styles = StyleSheet.create({
   imageClasses: {
-    backgroundColor: colors.white,
+    backgroundColor: 'rgba(250,250,250,0.85)',
     padding: visual.padding,
     borderRadius: visual.borderRadius,
   },
   labels: {
     fontWeight: 'bold',
     fontSize: fontsizes.p,
-    color: colors.accent1,
+    color: colors.accent2,
   },
   placeholder: {
     color: colors.neutralBlack,
